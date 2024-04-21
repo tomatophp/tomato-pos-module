@@ -31,6 +31,11 @@ class TomatoPosServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/lang' => base_path('lang/vendor/tomato-pos'),
         ], 'tomato-pos-lang');
 
+        //Register generate command
+        $this->commands([
+            \Modules\TomatoPos\App\Console\TomatoPosInstall::class,
+        ]);
+
         TomatoSlot::navBeforeUserDropdown('tomato-pos::pos.icon');
     }
 
